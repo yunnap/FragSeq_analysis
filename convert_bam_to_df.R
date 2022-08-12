@@ -1,8 +1,12 @@
 #load library
 library(Rsamtools)
+
+#need to point the path
+path_to_bam <- ".bam"
+path_to_bamdf <- ".csv"
+
 #read in entire BAM file
-#bam <- scanBam("/Users/unnost/workwork/prespacers_task/trimmomatic_exp_4/unique.bam")
-bam <- scanBam("/Users/unnost/workwork/prespacers_task/Results_fragseq/Oct14_S10_R1_001_R2_kd403-real_uni_mapped.bam")
+bam <- scanBam(path_to_bam)
 #names of the BAM fields
 names(bam[[1]])
 #distribution of BAM flags
@@ -25,6 +29,6 @@ bam_df <- do.call("DataFrame", list)
 names(bam_df) <- bam_field
 dim(bam_df)
 View(bam_df)
-write.table(bam_df, "/Users/unnost/workwork/prespacers_task/Results_fragseq/Oct14_S10_R1_001_R2_kd403-real_uni_mapped.csv" )
+write.table(bam_df, path_to_bamdf )
 head(bam_df)
 
