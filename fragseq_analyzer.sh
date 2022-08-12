@@ -2,9 +2,9 @@
 
 #we need trimmomatic, fastp, bwa, samtools, special java script (will be installed automatically)
 #if not here is a link http://lindenb.github.io/jvarkit/Biostar84452.html
-#regarding the last one link here ...
+
 #we give 4 arguments: r1, r2 for PE; file with adapter seqs; directory with ref files (there should be only ref files in fasta format)
-#script creates dir Results_fragseq
+#script creates dir Results_fragseq with bam files and statistics file
 
 R1=$1
 R2=$2
@@ -65,11 +65,6 @@ fi
 
 bwa mem -t 4 -k 20 ${f} Results_fragseq/${noext_r1}_paired_trimq_a.fastq Results_fragseq/${noext_r2}_paired_trimq_a.fastq | samtools view -S -b | java -jar jvarkit/dist/biostar84452.jar | samtools view -S -b | samtools view --threads 4 -b -f 2 > Results_fragseq/${noext}_${ref_pre}_mapped.bam
 samtools view -bq 1 Results_fragseq/${noext}_${ref_pre}_mapped.bam > Results_fragseq/${noext}_${ref_pre}_uni_mapped.bam
-
-
-#Rscript --vanilla bam_to_csv.R Results_fragseq/${noext}_${ref_pre}_uni_mapped.bam Results_fragseq/${noext}_${ref_pre}_uni_mapped.csv
-#Rscript --vanilla bam_to_csv.R Results_fragseq/Oct14_S10_R1_001_R2_kd403-real_uni_mapped.bam Results_fragseq/Oct14_S10_R1_001_R2_kd403-real_uni_mapped.csv
-
 
 
 
