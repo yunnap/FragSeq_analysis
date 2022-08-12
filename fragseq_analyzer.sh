@@ -47,11 +47,6 @@ bwa mem -t 4 -k 20 ${f} Results_fragseq/${noext_r1}_paired_trimq_a.fastq Results
 samtools view -bq 1 Results_fragseq/${noext}_${ref_pre}_mapped.bam > Results_fragseq/${noext}_${ref_pre}_uni_mapped.bam
 
 
-#Rscript --vanilla bam_to_csv.R Results_fragseq/${noext}_${ref_pre}_uni_mapped.bam Results_fragseq/${noext}_${ref_pre}_uni_mapped.csv
-
-#Rscript --vanilla bam_to_csv.R Results_fragseq/Oct14_S10_R1_001_R2_kd403-real_uni_mapped.bam Results_fragseq/Oct14_S10_R1_001_R2_kd403-real_uni_mapped.csv
-
-
 
 
 
