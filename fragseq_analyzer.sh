@@ -2,7 +2,9 @@
 
 #we need trimmomatic, fastp, bwa, samtools, special java script (will be installed automatically)
 #if not here is a link http://lindenb.github.io/jvarkit/Biostar84452.html
-#regarding the last one link here ...
+
+#also we need three additional python scripts for statistics
+
 #we give 4 arguments: r1, r2 for PE; file with adapter seqs; directory with ref files (there should be only ref files in fasta format)
 #script creates dir Results_fragseq
 
